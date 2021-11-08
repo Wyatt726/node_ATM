@@ -9,7 +9,7 @@ function getBalance(){
 }
 
 function withdraw(){
-    withdrawAmount = (prompt("please enter the withdraw amount"))
+    withdrawAmount = parseInt(prompt("please enter the withdraw amount"))
     if (withdrawAmount <= account.balance){
        account.balance = account.balance - withdrawAmount
        console.log(`You withdrew ${withdrawAmount} Your new balance is ${account.balance}`)
@@ -21,9 +21,15 @@ function withdraw(){
 }
 
 function deposit(){
-    depositAmount = (prompt("please eneter the deposit amount"))
+    depositAmount = parseInt(prompt("please eneter the deposit amount"));
+    if(isNaN(depositAmount)){
+        console.log("Enter a Number")
+        deposit()
+    }
+    else{
     account.balance = account.balance + depositAmount
-  console.log(`you have despoitied ${depositAmount} Your new balance is ${account.balance}`)
+    console.log(`you have despoitied ${depositAmount} Your new balance is ${account.balance}`)
+    }
 }
 
 function validatePin(){

@@ -19,9 +19,9 @@ switch(userInput){
     case 4:
     mainMenu()// restart
     case 5:
-    return; // stop execution
+    process.exit() // stop execution
     default:
-    return mainMenu; // ask again
+    
 }
 }
 
