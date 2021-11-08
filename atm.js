@@ -10,14 +10,16 @@ function getBalance(){
 
 function withdraw(){
     withdrawAmount = parseInt(prompt("please enter the withdraw amount"))
-    if (withdrawAmount <= account.balance){
-       account.balance = account.balance - withdrawAmount
-       console.log(`You withdrew ${withdrawAmount} Your new balance is ${account.balance}`)
-
-    }else{
-        console.log("Please enter a correct amount")
+    if(isNaN(withdrawAmount)){
+        console.log("Enter a Number")
         withdraw()
     }
+    else {
+        withdrawAmount <= account.balance;{
+        account.balance = account.balance - withdrawAmount
+        console.log(`You withdrew ${withdrawAmount} Your new balance is ${account.balance}`)
+    }
+}
 }
 
 function deposit(){
