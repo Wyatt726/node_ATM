@@ -1,29 +1,28 @@
-const atm = require('./atm')
+const atm = require("./atm");
 const prompt = require('prompt-sync')();
 
 atm.validatePin()
-  
+mainMenu()
 
-const mainMenu = promptFor("Enter 1 for Balance, Enter 2 for Withdraw, Enter 3, Enter 4 restart or 5 to quit'", autoValid);
-
-switch(mainMenu){
-  case "1":
-  account.balance;
-  break;
-  case "2":
-  atm.withdraw;
-  break;
-  case "3":
-  atm.deposit
-  break;
-  case "4":
-  app(people); // restart
-  break;
-  case "5":
-  return; // stop execution
-  default:
-  return mainMenu; // ask again
+function mainMenu(){
+    let userInput = parseInt(prompt("Enter 1 for Balance, Enter 2 for Withdraw, Enter 3 for Deposit, Enter 4 restart or 5 to quit'"))
+switch(userInput){
+    case 1:
+    atm.getBalance()
+    mainMenu()
+    case 2:
+    atm.withdraw()
+    mainMenu();
+    case 3:
+    atm.deposit()
+    mainMenu()
+    case 4:
+    mainMenu()// restart
+    case 5:
+    return; // stop execution
+    default:
+    return mainMenu; // ask again
 }
-
+}
 
 module.exports.mainMenu = mainMenu;

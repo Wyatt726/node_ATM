@@ -1,47 +1,42 @@
-const PromptSync = require('prompt-sync')
-const account = require('./account')
-const index = require('./index')
+let index = require('./index');
+let account = require('./account');
+let prompt = require("prompt-sync")();
+
 
 
 function getBalance(){
-    account.balance
     console.log(account.balance)
 }
 
 function withdraw(){
-    const amount = prompt('Enter amount to withdraw')//prompt user for withdraw amount
-    if (amount <= account.balance){
-        account.balance = account.balance - amount
-        console.log(account.balance)
-    }
-    else{
-        return index.mainMenu
+    withdrawAmount = (prompt("please enter the withdraw amount"))
+    if (withdrawAmount <= account.balance){
+       account.balance = account.balance - withdrawAmount
+       console.log(`You withdrew ${withdrawAmount} Your new balance is ${account.balance}`)
+
+    }else{
+        console.log("Please enter a correct amount")
+        withdraw()
     }
 }
 
 function deposit(){
-    const amountDeposit = prompt('Enter amount to Deposit')//prompt user for withdraw amount
-    if (amount >= account.balance){
-        account.balance = account.balance + amountDeposit
-        console.log(account.balance)
-    }
-    else{
-        return index.mainMenu
-    }
+    depositAmount = (prompt("please eneter the deposit amount"))
+    account.balance = account.balance + depositAmount
+  console.log(`you have despoitied ${depositAmount} Your new balance is ${account.balance}`)
 }
 
-function validatePin(){ for(let i = 0; i < pin.length; i++){
-    const answer = promptFor("Is " + input[i].pin +  " your correct pin? Type 'yes' or 'no' below.", yesNo);
-    if(answer == "yes"){
-      mainMenu;
-      break;
-      console.log("this  is where we will validate pin")
-      account.pin
-    }else{
-      alert("Wrong Pin");
+function validatePin(){
+    let userPin = parseInt(prompt('Enter your pin'))
+    if(userPin == account.pin){
+      console.log("You Entered The Correct Pin")
+    }
+    else {
+      console.log('Incorrect pin. Please try again')
+      validatePin()
     }
   }
-}
+
     
 
   
